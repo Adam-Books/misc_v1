@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A781686-B080-434A-B1A9-F9DBECAC4B60}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CashierSystem</RootNamespace>
+    <AssemblyName>CashierSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>cashier_machine_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CashierDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashierDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CashierDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashierDBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CashierDBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashierDBDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CashierDBDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashierDBDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CashierDBDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashierDBDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CashierModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashierModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CashierModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashierModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CashierModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashierModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_HOME.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_HOME.Designer.cs">
+      <DependentUpon>FRM_HOME.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_PRODUCTGROUPS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_PRODUCTGROUPS.Designer.cs">
+      <DependentUpon>FRM_PRODUCTGROUPS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_PRODUCTS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_PRODUCTS.Designer.cs">
+      <DependentUpon>FRM_PRODUCTS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_PRODUCTGROUPS_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_PRODUCTGROUPS_ADD.Designer.cs">
+      <DependentUpon>FRM_PRODUCTGROUPS_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_UNITS_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_UNITS_ADD.Designer.cs">
+      <DependentUpon>FRM_UNITS_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_PRODUCTS_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_PRODUCTS_ADD.Designer.cs">
+      <DependentUpon>FRM_PRODUCTS_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_SETTINGS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_SETTINGS.Designer.cs">
+      <DependentUpon>FRM_SETTINGS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_UNITS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_UNITS.Designer.cs">
+      <DependentUpon>FRM_UNITS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCT.cs">
+      <DependentUpon>CashierModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCT_GROUPS.cs">
+      <DependentUpon>CashierModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>CashierModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UNIT.cs">
+      <DependentUpon>CashierModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_HOME.resx">
+      <DependentUpon>FRM_HOME.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_PRODUCTGROUPS.resx">
+      <DependentUpon>FRM_PRODUCTGROUPS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_PRODUCTS.resx">
+      <DependentUpon>FRM_PRODUCTS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_PRODUCTGROUPS_ADD.resx">
+      <DependentUpon>FRM_PRODUCTGROUPS_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_UNITS_ADD.resx">
+      <DependentUpon>FRM_UNITS_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_PRODUCTS_ADD.resx">
+      <DependentUpon>FRM_PRODUCTS_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_SETTINGS.resx">
+      <DependentUpon>FRM_SETTINGS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_UNITS.resx">
+      <DependentUpon>FRM_UNITS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="CashierModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CashierModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CashierDBDataSet.xsc">
+      <DependentUpon>CashierDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CashierDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CashierDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CashierDBDataSet.xss">
+      <DependentUpon>CashierDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CashierDBDataSet1.xsc">
+      <DependentUpon>CashierDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CashierDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CashierDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CashierDBDataSet1.xss">
+      <DependentUpon>CashierDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CashierDBDataSet2.xsc">
+      <DependentUpon>CashierDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="CashierDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CashierDBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CashierDBDataSet2.xss">
+      <DependentUpon>CashierDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="CashierDBDataSet3.xsc">
+      <DependentUpon>CashierDBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="CashierDBDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CashierDBDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CashierDBDataSet3.xss">
+      <DependentUpon>CashierDBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="CashierDBDataSet4.xsc">
+      <DependentUpon>CashierDBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="CashierDBDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CashierDBDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CashierDBDataSet4.xss">
+      <DependentUpon>CashierDBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="CashierModel.edmx.diagram">
+      <DependentUpon>CashierModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CashierModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CashierModel.Context.cs</LastGenOutput>
+      <DependentUpon>CashierModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="CashierModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CashierModel.edmx</DependentUpon>
+      <LastGenOutput>CashierModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="cashier_machine_icon.ico" />
+    <None Include="Resources\language 32.png" />
+    <None Include="Resources\close 32_2.png" />
+    <None Include="Resources\add 32.png" />
+    <None Include="Resources\edit 32_2.png" />
+    <None Include="Resources\delete 32_3.png" />
+    <None Include="Resources\update 32.png" />
+    <None Include="Resources\search 4.png" />
+    <None Include="Resources\kisspng-point-of-sale.png" />
+    <None Include="Resources\category4.png" />
+    <None Include="Resources\category2.png" />
+    <None Include="Resources\pngfind.com-cashier-png-6183136.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

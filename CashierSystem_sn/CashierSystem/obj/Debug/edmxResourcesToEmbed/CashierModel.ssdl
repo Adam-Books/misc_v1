@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CashierDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductBarcode" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="ProductDesc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UnitID" Type="int" Nullable="false" />
+    <Property Name="ProductGoupID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCT_GROUPS">
+    <Key>
+      <PropertyRef Name="ProductGroupID" />
+    </Key>
+    <Property Name="ProductGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductGroupName" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UNITS">
+    <Key>
+      <PropertyRef Name="UnitID" />
+    </Key>
+    <Property Name="UnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UnitName" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PRODUCT_PRODUCT_GROUPS">
+    <End Role="PRODUCT_GROUPS" Type="Self.PRODUCT_GROUPS" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT_GROUPS">
+        <PropertyRef Name="ProductGroupID" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="ProductGoupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUCT_UNITS">
+    <End Role="UNITS" Type="Self.UNITS" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNITS">
+        <PropertyRef Name="UnitID" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CashierDBModelStoreContainer">
+    <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT_GROUPS" EntityType="Self.PRODUCT_GROUPS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UNITS" EntityType="Self.UNITS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PRODUCT_PRODUCT_GROUPS" Association="Self.FK_PRODUCT_PRODUCT_GROUPS">
+      <End Role="PRODUCT_GROUPS" EntitySet="PRODUCT_GROUPS" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUCT_UNITS" Association="Self.FK_PRODUCT_UNITS">
+      <End Role="UNITS" EntitySet="UNITS" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

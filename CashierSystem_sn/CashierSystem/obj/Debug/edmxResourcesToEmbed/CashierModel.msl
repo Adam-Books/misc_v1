@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CashierDBModelStoreContainer" CdmEntityContainer="CashierDBEntities">
+    <EntitySetMapping Name="PRODUCTs">
+      <EntityTypeMapping TypeName="CashierDBModel.PRODUCT">
+        <MappingFragment StoreEntitySet="PRODUCT">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductBarcode" ColumnName="ProductBarcode" />
+          <ScalarProperty Name="ProductDesc" ColumnName="ProductDesc" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="ProductGoupID" ColumnName="ProductGoupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCT_GROUPS">
+      <EntityTypeMapping TypeName="CashierDBModel.PRODUCT_GROUPS">
+        <MappingFragment StoreEntitySet="PRODUCT_GROUPS">
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="ProductGroupName" ColumnName="ProductGroupName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CashierDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UNITS">
+      <EntityTypeMapping TypeName="CashierDBModel.UNIT">
+        <MappingFragment StoreEntitySet="UNITS">
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

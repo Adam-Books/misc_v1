@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CashierDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductBarcode" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitID" Type="Int32" Nullable="false" />
+    <Property Name="ProductGoupID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PRODUCT_GROUPS" Relationship="Self.FK_PRODUCT_PRODUCT_GROUPS" FromRole="PRODUCT" ToRole="PRODUCT_GROUPS" />
+    <NavigationProperty Name="UNIT" Relationship="Self.FK_PRODUCT_UNITS" FromRole="PRODUCT" ToRole="UNITS" />
+  </EntityType>
+  <EntityType Name="PRODUCT_GROUPS">
+    <Key>
+      <PropertyRef Name="ProductGroupID" />
+    </Key>
+    <Property Name="ProductGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductGroupName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_PRODUCT_GROUPS" FromRole="PRODUCT_GROUPS" ToRole="PRODUCT" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UNIT">
+    <Key>
+      <PropertyRef Name="UnitID" />
+    </Key>
+    <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_UNITS" FromRole="UNITS" ToRole="PRODUCT" />
+  </EntityType>
+  <Association Name="FK_PRODUCT_PRODUCT_GROUPS">
+    <End Role="PRODUCT_GROUPS" Type="Self.PRODUCT_GROUPS" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT_GROUPS">
+        <PropertyRef Name="ProductGroupID" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="ProductGoupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUCT_UNITS">
+    <End Role="UNITS" Type="Self.UNIT" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNITS">
+        <PropertyRef Name="UnitID" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CashierDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
+    <EntitySet Name="PRODUCT_GROUPS" EntityType="Self.PRODUCT_GROUPS" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="UNITS" EntityType="Self.UNIT" />
+    <AssociationSet Name="FK_PRODUCT_PRODUCT_GROUPS" Association="Self.FK_PRODUCT_PRODUCT_GROUPS">
+      <End Role="PRODUCT_GROUPS" EntitySet="PRODUCT_GROUPS" />
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUCT_UNITS" Association="Self.FK_PRODUCT_UNITS">
+      <End Role="UNITS" EntitySet="UNITS" />
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
